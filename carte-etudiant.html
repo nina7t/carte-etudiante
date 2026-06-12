@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carte Étudiant MJM Graphic Design</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f5f5f5;
+            font-family: 'Montserrat', sans-serif;
+            padding: 20px;
+        }
+
+        .card {
+            width: 500px;
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        /* Header Section */
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px 25px 15px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .school-logo-img {
+            height: 70px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .card-title-section {
+            text-align: right;
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 2px;
+        }
+
+        .campus {
+            font-size: 14px;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+
+        .year {
+            font-size: 18px;
+            font-weight: 700;
+            color: #e53935;
+        }
+
+        /* Design Banner */
+        .design-banner {
+            position: relative;
+            height: 120px;
+            background: url('fond.jpg') center/cover no-repeat;
+            overflow: hidden;
+        }
+
+        /* Photo Section */
+        .photo-section {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            margin-top: -50px;
+            margin-bottom: 20px;
+        }
+
+        .photo-container {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid #ffffff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            background: #f0f0f0;
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #e0e0e0;
+            color: #999;
+            font-size: 50px;
+        }
+
+        .photo-logo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Info Section */
+        .info-section {
+            padding: 0 40px 30px;
+        }
+
+        .name-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+        }
+
+        .name-block {
+            text-align: center;
+        }
+
+        .name-block.left {
+            text-align: left;
+        }
+
+        .name-block.right {
+            text-align: right;
+            padding-left: 30px;
+        }
+
+        .info-label {
+            font-size: 11px;
+            color: #5c6b7f;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+
+        .info-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1e3a8a;
+            text-transform: uppercase;
+        }
+
+        /* Bottom Section */
+        .bottom-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-top: 15px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .barcode-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .barcode {
+            width: 140px;
+            height: 50px;
+            background: #000000;
+            border-radius: 2px;
+        }
+
+        .card-number-section {
+            text-align: right;
+        }
+
+        .card-number {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+
+        .birth-section {
+            text-align: left;
+        }
+
+        .birth-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1e3a8a;
+            text-transform: uppercase;
+        }
+
+        .school-address {
+            font-size: 10px;
+            color: #5c6b7f;
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        /* Formation Section */
+        .formation-section {
+            text-align: center;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .formation-label {
+            font-size: 11px;
+            color: #5c6b7f;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        .formation-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e3a8a;
+            text-transform: uppercase;
+        }
+
+        /* Navigation */
+        .nav-links {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #1e3a8a;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .nav-links a:hover {
+            background: #1e3a8a;
+            color: white;
+        }
+
+        .nav-links a.active {
+            background: #1e3a8a;
+            color: white;
+        }
+
+        /* Responsive Mobile */
+        @media (max-width: 540px) {
+            body {
+                padding: 10px;
+            }
+
+            .card {
+                width: 100%;
+                max-width: 360px;
+            }
+
+            .card-header {
+                padding: 15px 15px 10px;
+            }
+
+            .school-logo-img {
+                height: 50px;
+            }
+
+            .logo-text {
+                font-size: 16px;
+            }
+
+            .card-title {
+                font-size: 16px;
+            }
+
+            .campus {
+                font-size: 12px;
+            }
+
+            .year {
+                font-size: 14px;
+            }
+
+            .design-banner {
+                height: 90px;
+            }
+
+            .photo-section {
+                margin-top: -40px;
+                margin-bottom: 15px;
+            }
+
+            .photo-container {
+                width: 100px;
+                height: 100px;
+            }
+
+            .info-section {
+                padding: 0 20px 20px;
+            }
+
+            .info-value {
+                font-size: 16px;
+            }
+
+            .birth-value, .card-number {
+                font-size: 16px;
+            }
+
+            .formation-value {
+                font-size: 14px;
+            }
+
+            .school-address {
+                font-size: 9px;
+            }
+
+            .nav-links {
+                position: relative;
+                top: auto;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-links">
+        <a href="carte-etudiant.html" class="active">Carte 1</a>
+        <a href="carte-etudiant-2.html">Carte 2</a>
+    </div>
+
+    <div class="card">
+        <!-- Header -->
+        <div class="card-header">
+            <div class="logo-section">
+                <img src="logo.jpg" alt="Logo MJM Graphic Design" class="school-logo-img">
+            </div>
+            <div class="card-title-section">
+                <div class="card-title">Carte d'étudiant</div>
+                <div class="campus">Campus Strasbourg</div>
+                <div class="year">2025-2026</div>
+            </div>
+        </div>
+
+        <!-- Design Banner -->
+        <div class="design-banner"></div>
+
+        <!-- Photo -->
+        <div class="photo-section">
+            <div class="photo-container">
+                <img src="moi.jpg" alt="Nina Tonnaire" class="photo-logo">
+            </div>
+        </div>
+
+        <!-- Info Section -->
+        <div class="info-section">
+            <div class="name-row">
+                <div class="name-block left">
+                    <div class="info-label">PRÉNOM</div>
+                    <div class="info-value">Nina</div>
+                </div>
+                <div class="name-block right">
+                    <div class="info-label">NOM</div>
+                    <div class="info-value">TONNAIRE<br></div>
+                </div>
+            </div>
+
+            <div class="bottom-section">
+                <div class="birth-section">
+                    <div class="info-label">Né(e) le</div>
+                    <div class="birth-value">16/04/2001</div>
+                </div>
+                <div class="card-number-section">
+                    <div class="info-label">NUMÉRO DE CARTE</div>
+                    <div class="card-number">750001307</div>
+                </div>
+            </div>
+
+            <div class="formation-section">
+                <div class="formation-label">FORMATION</div>
+                <div class="formation-value">WEBDESIGN 1 A</div>
+                <div class="school-address">MJM Graphic Design : 5 rue Fritz Kiener 67000 STRASBOURG</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
